@@ -11,14 +11,18 @@ function Planet(radius, distance, speed, angle) {
     rotate(this.a);
     translate(this.d, 0);
     ellipse(0, 0, this.r * 2);
-    for (i = this.planets.length - 1; i >= 0; --i) this.planets[i].show();
+    if (this.planets.length != null)
+      for (k = this.planets.length - 1; k >= 0; k--) {
+        console.log("k", k);
+        this.planets[k].show();
+      }
     pop();
   }
 
   this.spin = function() {
     this.a += this.s; // base spin rate on speed
-    for (i = this.planets.length - 1; i >= 0; --i) //recursive check dependants
-      this.planets[i].spin(); //re-call function
+    for (l = this.planets.length - 1; l >= 0; --l) //recursive check dependants
+      this.planets[l].spin(); //re-call function
   }
 
   this.spawnSpiners = function(childNum, level) {
