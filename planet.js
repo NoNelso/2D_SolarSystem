@@ -22,18 +22,16 @@ function Planet(radius, distance, speed, angle) {
   }
 
   this.spawnSpiners = function(childNum, level) {
-    console.log("call spawn");
     for (i = 0; i < childNum; ++i) { //create planets by children number per lv
       var rad = ceil(this.r / (level + .3)); //each level is slightly smaler than parent
       var dis = floor(random(100, 150) / level); //each planet rand dist from parent
       var spd = random(-.1, .1); //each planet at rand orbit speed
       var ang = random(TWO_PI); //no planet should spawn right ontop of brother
-      console.log("level", level,
-        "i =", i, "rad =", rad, "dis =", dis, "spd =", spd, "ang =", ang);
       this.planets.push(new Planet(rad, dis, spd, ang));
-      if (level < 3) { //if level not at cap spawn again
-        //var num = floor(random(0, 4)); this.planets[i].spawnSpiners(num, 1 + level);
-        this.planets[i].spawnSpiners(5 - level, 1 + level);
+    }
+    if (level < 3) { //if level not at cap spawn again
+      for (j = 0; j < this.planets.length; ++j) {
+        this.planets[j].spawnSpiners(5 - level, 1 + level);
       }
     }
   }
