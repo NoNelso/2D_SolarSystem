@@ -22,15 +22,18 @@ function Planet(radius, distance, speed, angle) {
   }
 
   this.spawnSpiners = function(childNum, level) {
+    console.log("call spawn");
     for (i = 0; i < childNum; ++i) { //create planets = to children number
-      var rad = this.r / (level + 1);
+      var rad = ceil(this.r / (level + .3));
       var dis = floor(random(100, 150) / level);
       var spd = random(-.1, .1);
       var ang = random(TWO_PI);
+      console.log("level", level,
+        "i =", i, "rad =", rad, "dis =", dis, "spd =", spd, "ang =", ang);
       this.planets.push(new Planet(rad, dis, spd, ang));
       if (level < 3) { //if level not at cap spawn again
-        //var num = floor(random(0, 4))
-        this.planets[i].spawnSpiners(5 - level, level + 1);
+        //var num = floor(random(0, 4)); this.planets[i].spawnSpiners(num, 1 + level);
+        this.planets[i].spawnSpiners(5 - level, 1 + level);
       }
     }
   }

@@ -5,6 +5,7 @@ function setup() {
   sun = new Planet(45, 0, 0, random(TWO_PI));
   //create 5 rotating bodies about sun with depth of spawn 1
   sun.spawnSpiners(5, 1);
+  console.log("sun", sun.planets[0]);
 }
 
 function draw() {
@@ -12,4 +13,9 @@ function draw() {
   translate(width / 2, height / 2); //sun in center
   sun.show(); //show solar system
   sun.spin(); //itterate solar system
+}
+
+function keyPressed() {
+  if (keyCode == 72) noLoop();
+  if (keyCode == 71) loop();
 }
