@@ -1,5 +1,6 @@
 function setup() {
   createCanvas(600, 500);
+  fill(255, 100);
   //create circle with
   //radius 45, dist from center 0, rotationspeed 0, angle 0, level 0
   sun = new Planet(45, 0, 0, 0, 1);
