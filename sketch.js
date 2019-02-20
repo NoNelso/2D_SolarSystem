@@ -1,11 +1,11 @@
 function setup() {
   createCanvas(600, 500);
   //create circle with
-  //radius 45, dist from center 0, rotationspeed 0, angle random val < 2 PI
-  sun = new Planet(45, 0, 0, random(TWO_PI));
+  //radius 45, dist from center 0, rotationspeed 0, angle 0, level 0
+  sun = new Planet(45, 0, 0, 0, 1);
   //create 5 rotating bodies about sun with depth of spawn 1
   sun.spawnSpiners(5, 1);
-  console.log("sun", sun.planets[0]);
+  console.log("sun", sun);
 }
 
 function draw() {
@@ -16,6 +16,6 @@ function draw() {
 }
 
 function keyPressed() {
-  if (keyCode == 72) noLoop();
-  if (keyCode == 71) loop();
+  if (keyCode == 72) noLoop(); //h = stop animation loop
+  if (keyCode == 71) loop(); //g = restart animation loop
 }
