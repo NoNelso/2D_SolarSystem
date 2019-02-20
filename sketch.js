@@ -1,11 +1,10 @@
 function setup() {
   createCanvas(600, 500);
-  fill(255, 100);
   //create circle with
-  //radius 45, dist from center 0, rotationspeed 0, angle 0, level 0
-  sun = new Planet(45, 0, 0, 0, 1);
+  //radius 45, dist from center 0, rotationspeed 0, angle 0, level 1, yellow, no wobble
+  sun = new Planet(45, 0, 0, 0, 1, color(200, 100, 20), 0);
   //create 5 rotating bodies about sun with depth of spawn 1
-  sun.spawnSpiners(5, 1);
+  sun.spawnSpiners(3, 1);
   console.log("sun", sun);
 }
 
